@@ -1,0 +1,42 @@
+const int ledRojo = 9;
+const int ledAzul = 10;
+const int ledNaranja = 11;
+int dt = 1000;
+void setup() {
+  
+  pinMode(ledRojo, OUTPUT);
+  pinMode(ledAzul, OUTPUT);
+  pinMode(ledNaranja, OUTPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  if (Serial.available() > 0) {
+    char color = Serial.read();
+
+   
+    digitalWrite(ledRojo, LOW);
+    digitalWrite(ledAzul, LOW);
+    digitalWrite(ledNaranja, LOW);
+
+    switch (color) {
+      case 'r':
+        digitalWrite(ledRojo, HIGH);
+        delay (dt);
+        digitalWrite(ledRojo, LOW);
+        break;
+      case 'a':
+        digitalWrite(ledAzul, HIGH);
+        delay (dt);
+        digitalWrite(ledAzul, LOW);
+        break;
+      case 'n':
+        digitalWrite(ledNaranja, HIGH);
+        delay (dt);
+        digitalWrite(ledNaranja, LOW);
+        break;
+    }
+  }
+}
