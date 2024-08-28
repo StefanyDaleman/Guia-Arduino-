@@ -1,0 +1,13 @@
+int PinLed = 12;
+int dt = 1000;
+
+void setup() {
+  pinMode(PinLed, OUTPUT);
+}
+
+void loop() {
+ digitalWrite(PinLed, LOW);
+ delay(dt);
+ digitalWrite(PinLed, HIGH);
+ delay (dt);
+}
