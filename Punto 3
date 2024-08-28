@@ -1,0 +1,26 @@
+int Led1 = 12;
+int Led2 = 8;
+int Led3 = 4; 
+int dt1 = 1000;
+int dt2 = 2000;
+int dt3 = 3000;
+
+void setup () {
+  pinMode(Led1, OUTPUT);
+  pinMode(Led2, OUTPUT);
+  pinMode(Led3, OUTPUT);
+ 
+}
+
+void loop() {
+ digitalWrite(Led1,HIGH);
+ delay (dt1);
+ digitalWrite(Led2,HIGH);
+ delay (dt2);
+ digitalWrite(Led1,LOW);
+ digitalWrite(Led2,LOW);
+ digitalWrite(Led3,HIGH);
+ delay (dt3);
+ digitalWrite(Led3,LOW);
+ delay (dt3);
+}
