@@ -1,0 +1,22 @@
+const int PotenciometroPin = A0; 
+
+int lectura = 0; 
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+  lectura = analogRead(PotenciometroPin); 
+
+  Serial.print("Sensor Lectura: "); 
+  Serial.println(lectura);
+  
+
+  float voltaje = lectura * (5.0 / 1023.0); // Para Arduino Uno, el voltaje de referencia es 5V y la resolución es 10 bits
+  Serial.print("Voltaje lectura: ");
+  Serial.print(voltaje);
+  Serial.println("V");
+
+  delay(1000); 
+}
