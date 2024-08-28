@@ -1,0 +1,34 @@
+const int pinPotenciometro = A0; // Pin analógico donde está el potenciómetro
+const int pinLED = 8;           // Pin digital donde está el LED
+
+//Umbral para encender el LED
+const int umbral = 4; // Este umbral se ajusta a la lectura del ADC
+
+void setup() {
+  // Inicializar el pin del LED como salida
+  pinMode(pinLED, OUTPUT);
+  
+  // Inicializar la comunicación serial para depuración
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Leer el valor del potenciómetro
+  int valorAnalogico = analogRead(pinPotenciometro);
+
+  // Mostrar el valor analógico en el monitor serial
+  Serial.print("Valor del Potenciómetro: ");
+  Serial.println(valorAnalogico);
+
+  // Comparar el valor leído con el umbral
+  if (valorAnalogico <  umbral) {
+    // Encender el LED si el valor es mayor que el umbral
+    digitalWrite(pinLED, HIGH);
+  } else {
+    // Apagar el LED si el valor es menor o igual al umbral
+    digitalWrite(pinLED, LOW);
+  }
+
+  // Esperar 100 ms antes de la próxima lectura
+  delay(100);
+}
