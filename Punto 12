@@ -1,0 +1,32 @@
+#include <Servo.h>
+
+Servo miServo; 
+const int ldrPin = A0; 
+int valorLuz = 0; 
+
+void setup() {
+  miServo.attach(9); 
+  Serial.begin(9600); 
+}
+
+void loop() {
+  valorLuz = analogRead(ldrPin); 
+  Serial.println(valorLuz); 
+  
+  int angulo = map(valorLuz, 0, 1023, 0, 180); // Mapear el valor a un rango de 0 a 180 grados
+  
+ 
+  if (valorLuz < 256) {
+    // Mañana
+    miServo.write(45); 
+  } else if (valorLuz < 512) {
+    // Mediodía
+    miServo.write(90); 
+  } else if (valorLuz < 768) {
+    // Tarde
+    miServo.write(135); 
+  } else {
+    // Noche
+    miServo.write(180); 
+  delay(500);
+  }
