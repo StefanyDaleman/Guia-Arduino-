@@ -1,0 +1,25 @@
+int sensorpir = 12;
+int led = 8;
+
+void setup(){
+  
+  pinMode(sensorpir,INPUT);
+  pinMode(led,OUTPUT);
+  Serial.begin(9600);
+  digitalWrite(led,LOW);
+}
+
+void loop(){
+   
+  digitalWrite(led,LOW);
+  Serial.println(sensorpir);
+  if(digitalRead(sensorpir) == HIGH)
+  {
+  Serial.println("Detectado movimiento por el sensor pir");
+  digitalWrite(led,HIGH);
+  delay(1000);
+  digitalWrite(led,LOW);
+
+  }
+  
+}
