@@ -1,0 +1,42 @@
+
+#define RED_PIN   9
+#define GREEN_PIN 10
+#define BLUE_PIN  11
+
+
+#define COLOR_CHANGE_DELAY 1000 // 1 segundo para cada color
+
+void setup() {
+  
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(BLUE_PIN, OUTPUT);
+}
+
+void loop() {
+
+  setColor(255, 0, 0); // Rojo
+  delay(COLOR_CHANGE_DELAY);
+
+  // Mostrar color verde
+  setColor(0, 255, 0); // Verde
+  delay(COLOR_CHANGE_DELAY);
+
+  // Mostrar color azul
+  setColor(0, 0, 255); // Azul
+  delay(COLOR_CHANGE_DELAY);
+
+  // Mostrar color amarillo
+  setColor(255, 255, 0); // Amarillo
+  delay(COLOR_CHANGE_DELAY);
+
+  // Mostrar color blanco
+  setColor(255, 255, 255); // Blanco
+  delay(COLOR_CHANGE_DELAY);
+}
+
+void setColor(int red, int green, int blue) {
+  analogWrite(RED_PIN, red);
+  analogWrite(GREEN_PIN, green);
+  analogWrite(BLUE_PIN, blue);
+}
