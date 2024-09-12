@@ -1,0 +1,21 @@
+const int Pinpotenciometro = A0; 
+const int Pinmotor = 9; 
+
+void setup() {
+  pinMode(Pinmotor, OUTPUT);
+  Serial.begin(9600); 
+}
+
+void loop() {
+  int potValue = analogRead(Pinpotenciometro);
+  int pwmValue = map(potValue, 0, 1023, 0, 255); 
+
+  analogWrite(Pinmotor, pwmValue); 
+
+  Serial.print("Potenciometro: ");
+  Serial.print(potValue);
+  Serial.print("PWM: ");
+  Serial.println(pwmValue);
+
+  delay(100); 
+}
