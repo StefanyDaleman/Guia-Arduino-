@@ -1,17 +1,17 @@
-const int LED=13;
-const int BOTON=7;
+const int Led=13;
+const int Boton=7;
 int val;
 
 void setup(){
-pinMode(LED,OUTPUT);
-pinMode(BOTON,INPUT);
+pinMode(Led,OUTPUT);
+pinMode(Boton,INPUT);
 }
 
 void loop(){
-val=digitalRead(BOTON);
+val=digitalRead(Boton);
 if  (val==HIGH){
-digitalWrite(LED,HIGH);
+digitalWrite(Led,HIGH);
 }
-else { digitalWrite(LED,LOW);
+else { digitalWrite(Led,LOW);
 }
 }
