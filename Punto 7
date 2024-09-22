@@ -13,7 +13,7 @@ void loop() {
   Serial.println(lectura);
   
 
-  float voltaje = lectura * (5.0 / 1023.0); // Para Arduino Uno, el voltaje de referencia es 5V y la resolución es 10 bits
+  float voltaje = lectura * (5.0 / 1023.0); 
   Serial.print("Voltaje lectura: ");
   Serial.print(voltaje);
   Serial.println("V");
